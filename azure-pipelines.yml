@@ -47,3 +47,4 @@ steps:
     appType: 'webAppLinux'
     appName: 'yt-clone'
     package: '$(System.ArtifactsDirectory)/package/**/*.zip'
+    runtimeStack: 'DOTNETCORE|7.0'
