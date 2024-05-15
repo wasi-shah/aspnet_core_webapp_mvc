@@ -1,0 +1,52 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- main
+
+pool: Default
+
+
+variables:
+  buildConfiguration: 'Release'
+
+
+
+steps:
+
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    artifactName: 'package'
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    publishLocation: 'Container'
+
+- task: DownloadBuildArtifacts@0
+  inputs:
+    artifactName: 'package'
+    downloadPath: '$(System.ArtifactsDirectory)'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Free-Trial(2)(e3b7fac9-cc7a-4e30-898f-087b8f741932)'
+    appType: 'webAppLinux'
+    appName: 'net8pv3-win'
+    deployToSlotOrASE: true
+    resourceGroupName: 'net8pv3_win_RG'
+    slotName: 'production'
+    package: '$(System.ArtifactsDirectory)/package/**/*.zip'
