@@ -18,9 +18,8 @@ variables:
 steps:
 - task: UseDotNet@2
   inputs:
-    packageType: 'sdk'
-    version: '3.0.x'
-    includePreviewVersions: true
+    packageType: 'runtime'
+    version: '2.0.x'
 
 - task: DotNetCoreCLI@2
   inputs:
