@@ -48,7 +48,7 @@ steps:
 
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: 'Free-Trial(e3b7fac9-cc7a-4e30-898f-087b8f741932)'
+    azureSubscription: 'Free-Trial(2)(e3b7fac9-cc7a-4e30-898f-087b8f741932)'
     appType: 'webAppLinux'
     appName: 'yt-clone'
     package: '$(System.ArtifactsDirectory)/package/**/*.zip'
