@@ -44,7 +44,10 @@ steps:
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Free-Trial(2)(e3b7fac9-cc7a-4e30-898f-087b8f741932)'
-    appType: 'webAppLinux'
-    appName: 'yt-clone'
+    appType: 'webApp'
+    appName: 'net8pv3'
+    deployToSlotOrASE: true
+    resourceGroupName: 'ASPRG'
+    slotName: 'production'
     package: '$(System.ArtifactsDirectory)/package/**/*.zip'
-    runtimeStack: 'DOTNETCORE|7.0'
+    deploymentMethod: 'auto'
