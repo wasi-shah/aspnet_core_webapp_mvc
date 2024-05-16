@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("aspnet-core-webapp-mvc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bdba12f76ce6827e3837de11400e9e8366426bac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+669a5d597273309a9056b60089011d434afda832")]
 [assembly: System.Reflection.AssemblyProductAttribute("aspnet-core-webapp-mvc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("aspnet-core-webapp-mvc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
